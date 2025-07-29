@@ -1,0 +1,15 @@
+# API Keys
+Config.plist
+*.xcconfig
+
+# Xcode
+*.xcuserstate
+*.xcworkspace/xcuserdata/
+.swiftpm/
+DerivedData/
+
+# macOS
+.DS_Store
+
+# Environment
+.env
