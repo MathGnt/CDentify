@@ -35,7 +35,7 @@ let package = Package(
                 .product(name: "DesignSystem", package: "Core"),
                 .product(name: "Protocols", package: "Domain"),
                 .product(name: "Entities", package: "Domain"),
-                "DataSources"
+                .target(name: "DataSources")
                 
             ],
             swiftSettings: [

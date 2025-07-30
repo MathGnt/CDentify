@@ -7,7 +7,15 @@
 
 import Foundation
 
-public struct MBReleaseDTO: Codable {
+public struct ResponseIDDTO: Codable {
+    let releases: [ReleaseIDDTO]
+}
+
+public struct ReleaseIDDTO: Codable {
+    let id: String
+}
+
+public struct ReleaseDTO: Codable {
     public let id: String
     public let title: String
     public let packaging: String?
@@ -25,13 +33,17 @@ public struct ArtistCreditDTO: Codable {
 public struct ArtistDTO: Codable {
     public let id: String
     public let name: String
+    public let genres: [GenreDTO]
+}
+
+public struct GenreDTO: Codable {
+    public let name: String
 }
 
 public struct MediaDTO: Codable {
     public let id: String
     public let format: String
     public let position: Int
-    public let trackCount: Int
     public let tracks: [TrackDTO]
 }
 

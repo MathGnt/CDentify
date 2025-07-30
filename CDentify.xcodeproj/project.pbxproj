@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29B174DF2E3AB46100BAD1A8 /* DataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 29B174DE2E3AB46100BAD1A8 /* DataSources */; };
+		29B174E12E3AB46100BAD1A8 /* Repositories in Frameworks */ = {isa = PBXBuildFile; productRef = 29B174E02E3AB46100BAD1A8 /* Repositories */; };
+		29B174FB2E3AB73A00BAD1A8 /* Protocols in Frameworks */ = {isa = PBXBuildFile; productRef = 29B174FA2E3AB73A00BAD1A8 /* Protocols */; };
+		29B174FD2E3AB73E00BAD1A8 /* UseCases in Frameworks */ = {isa = PBXBuildFile; productRef = 29B174FC2E3AB73E00BAD1A8 /* UseCases */; };
 		29E3B5102E38EB380079ABE4 /* BarcodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 29E3B50F2E38EB380079ABE4 /* BarcodeScanner */; };
 		29E3B5122E38EB380079ABE4 /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = 29E3B5112E38EB380079ABE4 /* Home */; };
 /* End PBXBuildFile section */
@@ -25,6 +29,7 @@
 				Data,
 				Domain,
 				Features,
+				Info.plist,
 			);
 			target = 291237FE2E382D9500FFE38F /* CDentify */;
 		};
@@ -46,8 +51,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29B174FD2E3AB73E00BAD1A8 /* UseCases in Frameworks */,
+				29B174E12E3AB46100BAD1A8 /* Repositories in Frameworks */,
 				29E3B5102E38EB380079ABE4 /* BarcodeScanner in Frameworks */,
 				29E3B5122E38EB380079ABE4 /* Home in Frameworks */,
+				29B174FB2E3AB73A00BAD1A8 /* Protocols in Frameworks */,
+				29B174DF2E3AB46100BAD1A8 /* DataSources in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +109,10 @@
 			packageProductDependencies = (
 				29E3B50F2E38EB380079ABE4 /* BarcodeScanner */,
 				29E3B5112E38EB380079ABE4 /* Home */,
+				29B174DE2E3AB46100BAD1A8 /* DataSources */,
+				29B174E02E3AB46100BAD1A8 /* Repositories */,
+				29B174FA2E3AB73A00BAD1A8 /* Protocols */,
+				29B174FC2E3AB73E00BAD1A8 /* UseCases */,
 			);
 			productName = CDentify;
 			productReference = 291237FF2E382D9500FFE38F /* CDentify.app */;
@@ -297,6 +310,8 @@
 				DEVELOPMENT_TEAM = YB5XHK274L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CDentify/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "CDentify needs to access to your camera to scan barcodes.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -331,6 +346,8 @@
 				DEVELOPMENT_TEAM = YB5XHK274L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CDentify/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "CDentify needs to access to your camera to scan barcodes.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -377,6 +394,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		29B174DE2E3AB46100BAD1A8 /* DataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DataSources;
+		};
+		29B174E02E3AB46100BAD1A8 /* Repositories */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Repositories;
+		};
+		29B174FA2E3AB73A00BAD1A8 /* Protocols */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Protocols;
+		};
+		29B174FC2E3AB73E00BAD1A8 /* UseCases */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UseCases;
+		};
 		29E3B50F2E38EB380079ABE4 /* BarcodeScanner */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = BarcodeScanner;

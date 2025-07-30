@@ -6,7 +6,8 @@
 //
 
 import Foundation
+import Entities
 
 public protocol Releasable {
-    
+    func mapToDomain(_ barcode: String) async throws -> CD
 }

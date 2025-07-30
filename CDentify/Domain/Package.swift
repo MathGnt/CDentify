@@ -7,6 +7,15 @@ let baseDeps: [PackageDescription.Target.Dependency] = [
   .product(name: "DesignSystem", package: "Core")
 ]
 
+let useCasesDeps: [PackageDescription.Target.Dependency] = baseDeps + [
+    .target(name: "Protocols"),
+    .target(name: "Entities")
+]
+
+let ptcDeps: [PackageDescription.Target.Dependency] = baseDeps + [
+    .target(name: "Entities")
+]
+
 let package = Package(
     name: "Domain",
     platforms: [.iOS(.v26), .macOS(.v26)],
@@ -27,13 +36,13 @@ let package = Package(
             ]
         ),
         .target(name: "UseCases",
-               dependencies: baseDeps,
+              dependencies: useCasesDeps,
                swiftSettings: [
                 .defaultIsolation(MainActor.self)
             ]
         ),
         .target(name: "Protocols",
-               dependencies: baseDeps,
+               dependencies: ptcDeps,
                swiftSettings: [
                 .defaultIsolation(MainActor.self)
             ]

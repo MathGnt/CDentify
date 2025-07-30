@@ -9,6 +9,10 @@ let baseDeps: [PackageDescription.Target.Dependency] = [
   .product(name: "Protocols", package: "Domain"),
 ]
 
+let homeDeps: [PackageDescription.Target.Dependency] = [
+    .target(name: "BarcodeScanner")
+]
+
 let package = Package(
     name: "Features",
     platforms: [.iOS(.v26), .macOS(.v26)],
@@ -29,7 +33,7 @@ let package = Package(
         ),
         .target(
             name: "Home",
-            dependencies: baseDeps,
+            dependencies: baseDeps + homeDeps,
             swiftSettings: [
                 .defaultIsolation(MainActor.self)
             ]

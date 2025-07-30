@@ -7,56 +7,48 @@
 
 import Foundation
 import SwiftData
+import CoreLocation
 
-@Model
-public final class CD {
-    var title: String
-    @Relationship(deleteRule: .cascade, inverse: \Artist.CD)
-    var artist: [Artist]
-    var tracks: [Track]
-    var length: Int
-    @Attribute(.externalStorage)
-    var artwork: Data?
-    var packaging: String?
-    var releaseDate: Date
-    var averagePrice: Double?
-    var recordingData: [RecordingData]
+public struct CD {
+    public var title: String
+    public var artist: Artist
+    public var genre: String
+    public var tracks: [Track]
+    public var length: Int
+    public var artwork: Data?
+    public var packaging: String?
+    public var releaseDate: String
+    public var averagePrice: Double?
     
-    public init(title: String, artist: [Artist], tracks: [Track], length: Int, artwork: Data? = nil, packaging: String? = nil, releaseDate: Date, averagePrice: Double? = nil, recordingData: [RecordingData]) {
+    public init(title: String, artist: Artist, genre: String, tracks: [Track], length: Int, artwork: Data? = nil, packaging: String? = nil, releaseDate: String, averagePrice: Double? = nil) {
         self.title = title
         self.artist = artist
+        self.genre = genre
         self.tracks = tracks
         self.length = length
         self.artwork = artwork
         self.packaging = packaging
         self.releaseDate = releaseDate
         self.averagePrice = averagePrice
-        self.recordingData = recordingData
     }
 }
 
-@Model
-public final class Artist {
-    var name: String
-    var members: [String]
-    @Relationship(deleteRule: .cascade, inverse: \Show.artist)
-    var recentShows: [Show]
+public struct Artist {
+    public var name: String
+    public var members: [String]
+    public var recentShows: [Show]
     
-    var CD: CD?
-    
-    public init(name: String, members: [String], recentShows: [Show], CD: CD? = nil) {
+    public init(name: String, members: [String], recentShows: [Show]) {
         self.name = name
         self.members = members
         self.recentShows = recentShows
-        self.CD = CD
     }
 }
 
-@Model
-public final class Track {
-    var title: String
-    var position: Int
-    var duration: Int
+public struct Track {
+    public var title: String
+    public var position: Int
+    public var duration: Int
     
     public init(title: String, position: Int, duration: Int) {
         self.title = title
@@ -65,30 +57,26 @@ public final class Track {
     }
 }
 
-@Model
-public final class Show {
-    var date: Date
-    var venue: String
-    var playedSongs: [String]
+public struct Show {
+    public var date: String
+    public var location: Location
+    public var playedSongs: [String]
     
-    var artist: Artist?
-    
-    public init(date: Date, venue: String, playedSongs: [String]) {
+    public init(date: String, location: Location, playedSongs: [String]) {
         self.date = date
-        self.venue = venue
+        self.location = location
         self.playedSongs = playedSongs
     }
 }
 
-@Model
-public final class RecordingData {
-    var producer: String?
-    var audioEngineer: String?
-    var recordingStudio: String?
+public struct Location {
+    public var venue: String
+    public var city: String
+    public var coordinates: CLLocationCoordinate2D
     
-    public init(producer: String? = nil, audioEngineer: String? = nil, recordingStudio: String? = nil) {
-        self.producer = producer
-        self.audioEngineer = audioEngineer
-        self.recordingStudio = recordingStudio
+    public init(venue: String, city: String, coordinates: CLLocationCoordinate2D) {
+        self.venue = venue
+        self.city = city
+        self.coordinates = coordinates
     }
 }
