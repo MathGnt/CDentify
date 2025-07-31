@@ -9,35 +9,46 @@ let baseDeps: [PackageDescription.Target.Dependency] = [
   .product(name: "Protocols", package: "Domain"),
 ]
 
-let homeDeps: [PackageDescription.Target.Dependency] = [
-    .target(name: "BarcodeScanner")
-]
 
 let package = Package(
     name: "Features",
     platforms: [.iOS(.v26), .macOS(.v26)],
     products: [
-        .library(name: "BarcodeScanner", targets: ["BarcodeScanner"]),
-        .library(name: "Home", targets: ["Home"]),
+        .library(name: "Views", targets: ["Views"]),
+        .library(name: "Models", targets: ["Models"])
     ],
     dependencies: [
         .package(name: "Domain", path: "../Domain"),
+        .package(name: "Router", path: "../Router")
     ],
     targets: [
         .target(
-            name: "BarcodeScanner",
-            dependencies: baseDeps,
+            name: "Views",
+            dependencies: [
+                .target(name: "Models"),
+                .product(name: "Dependencies", package: "Router")
+                ],
             swiftSettings: [
                 .defaultIsolation(MainActor.self)
             ]
         ),
         .target(
-            name: "Home",
-            dependencies: baseDeps + homeDeps,
+            name: "Models",
+            dependencies: baseDeps,
             swiftSettings: [
                 .defaultIsolation(MainActor.self)
             ]
-        )
+        ),
+        .testTarget(
+          name: "ScannerTests",
+          dependencies: [
+            .target(name: "Models"),
+            .product(name: "Dependencies", package: "Router"),
+          ],
+          swiftSettings: [
+            .defaultIsolation(MainActor.self)
+          ]
+        ),
     ],
     swiftLanguageModes: [.v6]
 )

@@ -80,3 +80,14 @@ public struct Location {
         self.coordinates = coordinates
     }
 }
+
+
+extension CD: Identifiable {
+    public var id: String { title + artist.name }
+}
+extension Track: Identifiable {
+    public var id: String { title + String(duration) }
+}
+extension Show: Identifiable {
+    public var id: String { date + playedSongs[3] }
+}

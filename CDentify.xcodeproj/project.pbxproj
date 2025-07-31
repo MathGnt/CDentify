@@ -7,12 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		29B174DF2E3AB46100BAD1A8 /* DataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 29B174DE2E3AB46100BAD1A8 /* DataSources */; };
-		29B174E12E3AB46100BAD1A8 /* Repositories in Frameworks */ = {isa = PBXBuildFile; productRef = 29B174E02E3AB46100BAD1A8 /* Repositories */; };
-		29B174FB2E3AB73A00BAD1A8 /* Protocols in Frameworks */ = {isa = PBXBuildFile; productRef = 29B174FA2E3AB73A00BAD1A8 /* Protocols */; };
-		29B174FD2E3AB73E00BAD1A8 /* UseCases in Frameworks */ = {isa = PBXBuildFile; productRef = 29B174FC2E3AB73E00BAD1A8 /* UseCases */; };
-		29E3B5102E38EB380079ABE4 /* BarcodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 29E3B50F2E38EB380079ABE4 /* BarcodeScanner */; };
-		29E3B5122E38EB380079ABE4 /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = 29E3B5112E38EB380079ABE4 /* Home */; };
+		299E6E412E3BAD0F0055EA1A /* Views in Frameworks */ = {isa = PBXBuildFile; productRef = 299E6E402E3BAD0F0055EA1A /* Views */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +25,7 @@
 				Domain,
 				Features,
 				Info.plist,
+				Router,
 			);
 			target = 291237FE2E382D9500FFE38F /* CDentify */;
 		};
@@ -51,12 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29B174FD2E3AB73E00BAD1A8 /* UseCases in Frameworks */,
-				29B174E12E3AB46100BAD1A8 /* Repositories in Frameworks */,
-				29E3B5102E38EB380079ABE4 /* BarcodeScanner in Frameworks */,
-				29E3B5122E38EB380079ABE4 /* Home in Frameworks */,
-				29B174FB2E3AB73A00BAD1A8 /* Protocols in Frameworks */,
-				29B174DF2E3AB46100BAD1A8 /* DataSources in Frameworks */,
+				299E6E412E3BAD0F0055EA1A /* Views in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,12 +98,7 @@
 			);
 			name = CDentify;
 			packageProductDependencies = (
-				29E3B50F2E38EB380079ABE4 /* BarcodeScanner */,
-				29E3B5112E38EB380079ABE4 /* Home */,
-				29B174DE2E3AB46100BAD1A8 /* DataSources */,
-				29B174E02E3AB46100BAD1A8 /* Repositories */,
-				29B174FA2E3AB73A00BAD1A8 /* Protocols */,
-				29B174FC2E3AB73E00BAD1A8 /* UseCases */,
+				299E6E402E3BAD0F0055EA1A /* Views */,
 			);
 			productName = CDentify;
 			productReference = 291237FF2E382D9500FFE38F /* CDentify.app */;
@@ -311,12 +297,12 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CDentify/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_NSCameraUsageDescription = "CDentify needs to access to your camera to scan barcodes.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -325,12 +311,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathisgaignet.CDentify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 6.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -347,12 +335,12 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CDentify/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_NSCameraUsageDescription = "CDentify needs to access to your camera to scan barcodes.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -361,12 +349,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathisgaignet.CDentify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 6.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -394,29 +384,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		29B174DE2E3AB46100BAD1A8 /* DataSources */ = {
+		299E6E402E3BAD0F0055EA1A /* Views */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = DataSources;
-		};
-		29B174E02E3AB46100BAD1A8 /* Repositories */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Repositories;
-		};
-		29B174FA2E3AB73A00BAD1A8 /* Protocols */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Protocols;
-		};
-		29B174FC2E3AB73E00BAD1A8 /* UseCases */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = UseCases;
-		};
-		29E3B50F2E38EB380079ABE4 /* BarcodeScanner */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = BarcodeScanner;
-		};
-		29E3B5112E38EB380079ABE4 /* Home */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Home;
+			productName = Views;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -12,17 +12,19 @@ import Observation
 /// Own dependencies
 import UseCases
 import Entities
+import SwiftUI
 
 @Observable
 public class ScannerModel: DataScannerViewControllerDelegate {
-    let scannerController = DataScannerViewController(
+    public let scannerController = DataScannerViewController(
         recognizedDataTypes: [.barcode(symbologies: [.ean13])],
-        qualityLevel: .accurate,
+        qualityLevel: .balanced,
         recognizesMultipleItems: false
     )
     
     public var cd: CD?
     public var askedForScan = false
+    public var showCD = false
     private var barcodeValue: String?
     let useCase: ScannerUseCase
     

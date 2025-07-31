@@ -3,10 +3,11 @@
 
 import PackageDescription
 
-//let baseDeps: [PackageDescription.Target.Dependency] = [
-//    .product(name: "DesignSystem", package: "Core"),
-//    .product(name: "Protocols", package: "Domain")
-//]
+let baseDeps: [PackageDescription.Target.Dependency] = [
+    .product(name: "DesignSystem", package: "Core"),
+    .product(name: "Protocols", package: "Domain"),
+    .product(name: "Entities", package: "Domain"),
+]
 
 let package = Package(
     name: "Data",
@@ -22,27 +23,20 @@ let package = Package(
     targets: [
         .target(
             name: "DataSources",
-            dependencies: [
-                .product(name: "DesignSystem", package: "Core"),
-            ],
+            dependencies: baseDeps,
             swiftSettings: [
                 .defaultIsolation(MainActor.self)
             ]
         ),
         .target(
             name: "Repositories",
-            dependencies: [
-                .product(name: "DesignSystem", package: "Core"),
-                .product(name: "Protocols", package: "Domain"),
-                .product(name: "Entities", package: "Domain"),
+            dependencies: baseDeps + [
                 .target(name: "DataSources")
-                
             ],
             swiftSettings: [
                 .defaultIsolation(MainActor.self)
             ]
         ),
-        
     ],
     swiftLanguageModes: [.v6]
 )
